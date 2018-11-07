@@ -1,0 +1,61 @@
+<html>
+  <head>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart','gauge']});
+      google.charts.setOnLoadCallback(initialize);
+
+      function initialize() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Water °C', <%= temperature %>],
+        ]);
+
+        var options = {
+          width: 400, height: 600,
+          redFrom: 30, redTo: 35,
+          yellowFrom:18, yellowTo: 23,
+          greenFrom: 23, greenTo: 30,
+          minorTicks: 12,
+          max: 60,
+          min: 0,
+          greenColor: '#40FF00',
+          redColor: '#F7819F',
+          yellowColor: '#F7819F',
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div_2'));
+
+        chart.draw(data, options);
+
+        var data3 = google.visualization.arrayToDataTable([
+          ['Time', 'Temperature'],
+          ['8:00',  21.8],
+          ['9:00',  24],
+          ['10:00', 21.8],
+          ['11:00', 21.9],
+          ['12:00', 22.0],
+          ['13:00', 23.0]
+        ]);
+
+        var options3 = {
+            title: 'Water temperature',
+            hAxis: {title: 'Time',  titleTextStyle: {color: '#333'}},
+            vAxis: {minValue: 0}
+        };
+
+        var chart3 = new google.visualization.AreaChart(document.getElementById('chart_div_2'));
+        //chart3.draw(data3, options3);
+}
+</script>
+</head>
+<body>
+<div>
+ <div id="chart_div_1" style="width: 50%; height: 120px;"></div>
+</div>
+<div>
+ <div id="chart_div_2" style="width: 50%; height: 120px;"></div>
+</div>
+</body>
+</html>
