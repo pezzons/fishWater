@@ -8,7 +8,7 @@ const ip = require('ip');
 db.connect('mongodb://lora:loralora2@ds046027.mlab.com:46027/garten', {useNewUrlParser: true});
 app.set('view engine', 'ejs');
 
-app.get('/temp', function(req, resp){
+app.get('/tempa', function(req, resp){
     resp.render('index');
 });
 
